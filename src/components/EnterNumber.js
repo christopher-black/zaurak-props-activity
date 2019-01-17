@@ -6,6 +6,7 @@ class EnterNumber extends Component {
         super(props);
         this.state = {
             inputNumber: 0,
+            anotherNumber: 3,
         };
     }
 
@@ -29,7 +30,7 @@ class EnterNumber extends Component {
     render() {
         return (
             <div>
-                EnterNumber state: {JSON.stringify(this.state)}
+                EnterNumber State: {JSON.stringify(this.state)}
                 <input onChange={this.handleChange} type="number" />
                 <button onClick={this.handleUpClick}>Up</button>
                 <button onClick={this.handleDownClick}>Down</button>
