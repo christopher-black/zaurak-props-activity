@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class EnterNumber extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             inputNumber: 0,
         };
@@ -16,12 +16,23 @@ class EnterNumber extends Component {
         });
     }
 
+    handleUpClick = () => {
+        // Call the updateTotal function of App.js
+        this.props.updateTotal(this.state.inputNumber);
+    }
+
+    handleDownClick = () => {
+        // Pass a negative number to updateTotal
+        this.props.updateTotal(0 - this.state.inputNumber);
+    }
+
     render() {
         return (
             <div>
-                {JSON.stringify(this.state)}
-                <input onChange={this.handleChange} type="text" />
-                <button>Up</button>
+                EnterNumber state: {JSON.stringify(this.state)}
+                <input onChange={this.handleChange} type="number" />
+                <button onClick={this.handleUpClick}>Up</button>
+                <button onClick={this.handleDownClick}>Down</button>
             </div>
         );
     }
